@@ -33,3 +33,20 @@ export const groupByAndOrder = <K extends PropertyKey, T>(
   const group = Object.groupBy(items, keySelector)
   return orderGroupedObject(group)
 }
+
+
+export const groupBy = <T, K extends PropertyKey>(
+  items: T[],
+  keySelector: (item: T, index: number) => K
+): Partial<Record<K, T[]>> => {
+  const result: Partial<Record<K, T[]>> = {};
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    const key = keySelector(item, i);
+    if (!result[key]) {
+      result[key] = [];
+    }
+    result[key]?.push(item);
+  }
+  return result;
+}
