@@ -65,6 +65,7 @@ const DEFAULT_OPTIONS: KeywordExtractionOptions = {
     'se',
     'que',
     'é',
+    'sou',
     'são',
     'está',
     'estão',
@@ -331,6 +332,7 @@ export function extractKeywords(
   // 3. Tokenizar (dividir em palavras)
   // Usa uma regex para dividir por um ou mais espaços em branco
   const words = processedTitle.split(/\s+/).filter((word) => word.length > 0)
+  console.log('Palavras extraídas:', words)
 
   // 4. Filtrar stop words e comprimento mínimo
   let filteredKeywords = words.filter((word) => {
