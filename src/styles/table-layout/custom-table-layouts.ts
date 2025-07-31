@@ -1,30 +1,29 @@
+import { coalesce } from '@raicamposs/toolkit'
 import {
-  BufferOptions,
-  CustomTableLayout,
-  TDocumentDefinitions,
+  CustomTableLayout
 } from 'pdfmake/interfaces'
 
 export const customTableLayouts: Record<string, CustomTableLayout> = {
   customLayout01: {
-    hLineWidth: function (i, node) {
+    hLineWidth: (i, node) => {
       if (i === 0 || i === node.table.body.length) {
         return 0
       }
       return i === node.table.headerRows ? 2 : 1
     },
-    vLineWidth: function () {
+    vLineWidth: () => {
       return 0
     },
-    hLineColor: function (i) {
+    hLineColor: (i) => {
       return i === 1 ? 'black' : '#bbbbbb'
     },
-    paddingLeft: function (i) {
+    paddingLeft: (i) => {
       return i === 0 ? 0 : 8
     },
-    paddingRight: function (i, node) {
-      return i === node.table.widths.length - 1 ? 0 : 8
+    paddingRight: (i, node) => {
+      return i === coalesce(node.table?.widths?.length, 0) - 1 ? 0 : 8
     },
-    fillColor: function (i, node) {
+    fillColor: (i, node) => {
       if (i === 0) {
         return '#7b90be'
       }
@@ -36,10 +35,10 @@ export const customTableLayouts: Record<string, CustomTableLayout> = {
     },
   },
   borderBlue: {
-    hLineColor: function () {
+    hLineColor: () => {
       return '#5f96d4'
     },
-    vLineColor: function () {
+    vLineColor: () => {
       return '#5f96d4'
     },
   },
