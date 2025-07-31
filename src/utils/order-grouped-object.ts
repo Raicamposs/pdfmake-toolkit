@@ -27,10 +27,10 @@ export const orderGroupedObject = <T extends Object>(
 }
 
 export const groupByAndOrder = <K extends PropertyKey, T>(
-  items: Iterable<T>,
+  items: T[],
   keySelector: (item: T, index: number) => K,
 ): Partial<Record<K, T[]>> => {
-  const group = Object.groupBy(items, keySelector)
+  const group = groupBy<T, K>(items, keySelector)
   return orderGroupedObject(group)
 }
 
