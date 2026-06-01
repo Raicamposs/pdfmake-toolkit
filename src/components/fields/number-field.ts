@@ -57,7 +57,7 @@ export class NumberField extends TextField {
       maximumFractionDigits: 2,
     },
   ) {
-    const { maximumFractionDigits, locales } = options
+    const { maximumFractionDigits, locales = DEFAULT_LOCATION } = options
     const fieldValue = roundABNT(coalesce(value, 0), maximumFractionDigits)
     const text = fieldValue.toLocaleString(locales, {
       style: 'currency',
