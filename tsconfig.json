@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2024",
-    "module": "commonjs",
+    "module": "Node16",
     "declaration": true,
     "outDir": "./dist",
     "rootDir": "./src",
@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node"
+    "moduleResolution": "Node16"
   },
   "include": [
     "src/**/*"
