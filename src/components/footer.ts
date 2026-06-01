@@ -12,9 +12,7 @@ export const footer = (
       {
         width: 80,
         text: TextField.text(`${currentPage} de ${pageCount}`)
-          .setFontSize('ExtraSmall')
-          .setAlignment('right')
-          .setMargin([0, 5, 10, 0])
+          .setStyle('footerText')
           .build(),
       },
     ],

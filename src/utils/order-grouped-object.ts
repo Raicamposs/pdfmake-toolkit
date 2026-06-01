@@ -1,4 +1,4 @@
-import { isNullOrUndefined, ObjectKeys } from '@raicamposs/toolkit'
+import { isNullOrUndefined, ObjectKeys } from "@raicampos/toolkit"
 
 export const orderGroupedObject = <T extends Object>(
   groupedObject: T,

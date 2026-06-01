@@ -1,4 +1,4 @@
-import { coalesce, roundABNT } from '@raicamposs/toolkit'
+import { coalesce, roundABNT } from '@raicampos/toolkit'
 import { Color } from '../../types'
 import { TextField } from './text-field'
 
@@ -29,9 +29,10 @@ export class NumberField extends TextField {
   ) {
     const { maximumFractionDigits, locales = DEFAULT_LOCATION } = options
     const fieldValue = roundABNT(coalesce(value, 0), maximumFractionDigits)
+    const minFraction = options.minimumFractionDigits ?? (maximumFractionDigits !== undefined ? Math.min(2, maximumFractionDigits) : 2)
     const text = fieldValue.toLocaleString(locales, {
       style: 'decimal',
-      minimumFractionDigits: 2,
+      minimumFractionDigits: minFraction,
       useGrouping: true,
       ...options,
     })

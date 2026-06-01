@@ -1,7 +1,6 @@
-import { coalesce } from '@raicamposs/toolkit'
-import {
-  CustomTableLayout
-} from 'pdfmake/interfaces'
+import { coalesce } from '@raicampos/toolkit'
+import { CustomTableLayout } from 'pdfmake/interfaces'
+import { ThemeRegistry } from '../../components/theme/theme-registry'
 
 export const customTableLayouts: Record<string, CustomTableLayout> = {
   customLayout01: {
@@ -24,22 +23,19 @@ export const customTableLayouts: Record<string, CustomTableLayout> = {
       return i === coalesce(node.table?.widths?.length, 0) - 1 ? 0 : 8
     },
     fillColor: (i, node) => {
+      const colors = ThemeRegistry.getInstance().getColors()
       if (i === 0) {
-        return '#7b90be'
+        return colors.tableHeaderFill
       }
       if (i === node.table.body.length - 1) {
-        return '#acb3c1'
+        return colors.tableFooterFill
       }
 
-      return i % 2 === 0 ? '#f3f3f3' : null
+      return i % 2 === 0 ? colors.tableAlternateRowFill : null
     },
   },
   borderBlue: {
-    hLineColor: () => {
-      return '#5f96d4'
-    },
-    vLineColor: () => {
-      return '#5f96d4'
-    },
+    hLineColor: () => ThemeRegistry.getInstance().getColors().tableBorderBlue,
+    vLineColor: () => ThemeRegistry.getInstance().getColors().tableBorderBlue,
   },
 }

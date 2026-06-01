@@ -35,12 +35,7 @@ export class TableBuilder {
   }
 
   buildDefaultHeader(text: string) {
-    return TextField.text(text)
-      .setFontSize('ExtraSmall')
-      .setColor('#404040')
-      .setMargin({
-        bottom: 2,
-      })
+    return TextField.text(text).setStyle('tableHeader')
   }
 
   addHeader(text: string, width: Size) {

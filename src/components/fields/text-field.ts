@@ -1,4 +1,4 @@
-import { isAssigned, StringUtils } from '@raicamposs/toolkit'
+import { isAssigned, StringUtils } from '@raicampos/toolkit'
 import { ContentText } from 'pdfmake/interfaces'
 import { Alignment, Color, Decoration, DecorationStyle } from '../../types'
 import { FontSizes, FontSizesValues } from '../../types/font-sizes'

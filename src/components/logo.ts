@@ -1,5 +1,5 @@
 
-import { isEmpty } from '@raicamposs/toolkit'
+import { isEmpty } from '@raicampos/toolkit'
 import { Content, ContentImage } from 'pdfmake/interfaces'
 
 export const Logo = (

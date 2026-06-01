@@ -24,12 +24,7 @@ export class HeaderBuilder {
 
   build(): Content {
     return [
-      DateField.now()
-        .setFontSize('Small')
-        .setStyle('overline')
-        .setAlignment('right')
-        .setMargin([0, 5, 10, 0])
-        .build(),
+      DateField.now().setStyle('headerText').build(),
     ]
   }
 }
@@ -40,11 +35,6 @@ export const header = (
   pageSize: ContextPageSize,
 ): Content => {
   return [
-    DateField.now()
-      .setFontSize('Small')
-      .setStyle('overline')
-      .setAlignment('right')
-      .setMargin([0, 5, 10, 0])
-      .build(),
+    DateField.now().setStyle('headerText').build(),
   ]
 }
